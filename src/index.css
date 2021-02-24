@@ -1,13 +1,480 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+/*
+The CSS code gets to executed from top to bottom and left ro right
+
+Basic rules to write CSS
+- write GENERAL rules first (for all the paragraph tags in the website for example) and only after that write CSS for SPECIFIC tags (for example the paragraph tags inside the footer)
+- write the css styles to define for the parent (outside) container and THEN the children (inside containers) of that parent and THEN the children (inside containers) of the child above
+*/
+
+/* -------------------------------------
+CSS reset
+Is a short set of CSS rules that resets the styling of all HTML elements to a consistent baseline so the website will look the same on all browsers
+*/
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  /*The box-sizing property is used to tell the browser what the sizing properties (width and height) should include border-box.*/
+  box-sizing: border-box;
+  /*reset Chrome user agent styles*/
+  -webkit-margin-before: 0px;
+  -webkit-margin-after: 0px;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-before: 0px;
+  -webkit-padding-after: 0px;
+  -webkit-padding-start: 0px;
+  -webkit-padding-end: 0px;
+  /*reset Firefox user agent styles*/
+  -moz-margin-before: 0px;
+  -moz-margin-after: 0px;
+  -moz-margin-start: 0px;
+  -moz-margin-end: 0px;
+  -moz-padding-before: 0px;
+  -moz-padding-after: 0px;
+  -moz-padding-start: 0px;
+  -moz-padding-end: 0px;
+  /*reset Internet Explorer user agent styles*/
+  -ms-margin-before: 0px;
+  -ms-margin-after: 0px;
+  -ms-margin-start: 0px;
+  -ms-margin-end: 0px;
+  -ms-padding-before: 0px;
+  -ms-padding-after: 0px;
+  -ms-padding-start: 0px;
+  -ms-padding-end: 0px;
+  /*reset Opera user agent styles*/
+  -o-margin-before: 0px;
+  -o-margin-after: 0px;
+  -o-margin-start: 0px;
+  -o-margin-end: 0px;
+  -o-padding-before: 0px;
+  -o-padding-after: 0px;
+  -o-padding-start: 0px;
+  -o-padding-end: 0px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* -------------------------------------
+General styles (General Module, wrapping around the modules below)
+(the styles used everywhere in the page (like the Body) or styles which are used in more than 2 of the modules below (h2, h3, h4, h5, h6, p, a, ul, li))
+*/
+
+body {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+  background-color: #fefcfb;
+  text-align: center;
+  line-height: 1.5;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+a:hover {
+  color: #c0c0c0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #468966;
+  margin: 10px;
+}
+
+input,
+select,
+button {
+  border: 1px solid #468966;
+  padding: 10px 25px;
+  margin: 5px;
+  border-radius: 15px;
+  color: #000000;
+}
+
+button {
+  background-color: transparent;
+  border: 2px solid #468966;
+  color: #e1e5f2;
+}
+
+button:hover {
+  background-color: #efc43f;
+  color: black;
+}
+
+button[type='submit'] {
+  background-color: transparent;
+  border: 2px solid #468966;
+}
+
+button[type='submit']:hover {
+  color: #ffffff;
+}
+
+label {
+  display: block;
+  margin: 10px;
+}
+
+/*
+The clearfix Hack: If an element is taller than the element containing it, and it is floated, it will "overflow" outside of its container
+https://www.w3schools.com/css/css_float_clear.asp
+*/
+.clearfix::after {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+/* -------------------------------------
+Header styles (Main Module)
+(all the styles inside the < header > or < nav > tags)
+*/
+header {
+  display: flex;
+  margin-top: 0;
+  padding: 10px;
+  justify-content: space-between;
+  background: #468966;
+}
+
+header a {
+  color: #fff;
+  margin: 0px 5px;
+}
+
+header h1 {
+  margin-left: 5px;
+}
+
+header nav {
+}
+header nav ul.nav-items,
+header nav div.logo {
+  display: inline-block;
+  width: auto;
+}
+
+/* -------------------------------------
+Content styles (Main Module)
+(all the styles inside the < sections > or < aside > tags)
+*/
+section {
+  margin: 10px 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section div.list-container {
+  padding: 20px;
+}
+
+section div.hide {
+  display: none;
+}
+section div.item-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 17px;
+  font-weight: 700;
+  background-color: #468966;
+  color: #fff;
+}
+
+section div.item-details {
+  background-color: #eff1ed;
+  font-weight: 700;
+  color: #468966;
+  font-size: 14px;
+  text-align: left;
+}
+section div.private-form {
+  font-weight: 700;
+  color: #468966;
+  font-size: 17px;
+  text-align: left;
+}
+section div.private-form textarea {
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 500;
+  border: 1px solid #468966;
+  border-radius: 15px;
+  padding: 7px;
+}
+section div.private-form select {
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 500;
+  border: 1px solid #468966;
+  text-align: center;
+}
+section div.private-form button {
+  padding: 2px;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #468966;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 500;
+}
+
+section div.item-details button {
+  padding: 2px;
+  border-radius: 5px;
+  background-color: #468966;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 500;
+}
+
+section div.item-header p {
+  margin: 7px;
+}
+
+section div.list-container h2 {
+  margin: 0 0 10px 0;
+  font-size: 26px;
+  color: #468966;
+}
+
+section.public-section p {
+  margin: 10px;
+  color: #6bb251;
+  font-style: italic;
+}
+section.public-section h2 {
+  margin: 10px;
+  color: #6bb251;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+section.public-section form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 4%;
+  background-color: #468966;
+  border-radius: 15px;
+  color: #fefcfb;
+}
+
+section.public-section footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  padding: 10px 50px;
+}
+
+section.public-section form input {
+  width: 60%;
+  color: black;
+}
+
+section div.item-details div.row {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 5px;
+}
+section div.private-form button:hover {
+  background: #2d6a4f;
+  color: #fff;
+}
+section div.private-form div.form-buttons {
+  text-align: center;
+}
+section div.private-form div.error {
+  color: red;
+  padding-left: 10px;
+}
+
+section div.dashboard-container button,
+section div.feedback-container button {
+  align-self: center;
+  font-size: 20px;
+  margin: 15px;
+  border-radius: 20px;
+  font-style: italic;
+  color: #034078;
+}
+
+section div.dashboard-container h3 {
+  align-self: center;
+  font-size: 25px;
+  margin: 15px;
+  border-radius: 20px;
+  font-style: italic;
+  color: #034078;
+}
+
+section div.learning-container form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 4%;
+  background-color: #468966;
+  border-radius: 15px;
+  color: #fefcfb;
+}
+
+section.public-section form button {
+  align-self: center;
+  width: 150px;
+  margin: 15px;
+  background-color: #6bb251;
+}
+
+section.public-section footer button {
+  align-self: center;
+  width: 150px;
+  margin-top: 10px;
+}
+
+section div.list-container form.searchForm {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+section div.list-container ul li {
+  list-style: none;
+  border: 1px solid #2d6a4f;
+  border-bottom: none;
+}
+
+section div.list-container div.title-add {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+section div.list-container div.title-add button {
+  font-family: 'Titillium Web', sans-serif;
+  background: none;
+  color: #468966;
+  font-size: 17px;
+  padding: 2px 7px;
+  margin-bottom: 5px;
+}
+
+section div.list-container form.searchForm label {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  flex-wrap: wrap;
+  font-size: 17px;
+}
+
+section div.list-container form.searchForm input {
+  border: 1px solid #468966;
+  font-size: 17px;
+  color: #468966;
+  padding: 2px 5px;
+}
+section div.list-container ul li:last-child {
+  border-bottom: 1px solid #2d6a4f;
+}
+section div.list-container form.searchForm button {
+  background: transparent;
+  border: 1px solid #468966;
+  font-family: 'Rajdhani', sans-serif;
+  color: #468966;
+  font-weight: 600;
+  font-size: 17px;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+section.public-section form div[role='alert'] p {
+  color: red;
+}
+section div.list-container div.title-add button:hover {
+  font-family: 'Titillium Web', sans-serif;
+  background: #468966;
+  color: #fff;
+  font-size: 17px;
+  padding: 2px 7px;
+  margin-bottom: 5px;
+}
+section div.list-container form.searchForm button:hover {
+  background: #468966;
+  border: 1px solid #468966;
+  font-family: 'Rajdhani', sans-serif;
+  color: #eeeeee;
+  font-weight: 600;
+  font-size: 17px;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+/* -------------------------------------
+Footer styles (Main Module)
+(all the styles inside the < footer > tag)
+*/
+
+footer {
+}
+
+footer a {
+}
+
+footer a:hover {
+  color: #081e6f;
+}
+
+/* -------------------------------------
+place all the desktop styles above this line
+
+Responsive styles
+(the very last module in the CSS, contains all the media queries and it is dealing with the compatibility with mobiles and tablets)
+
+place all the mobile tables styles below this line
+*/
+
+/* mobile first approach = (the website was built initialy for mobiles and it will be adapted for desktop)
+This is the ideal way to built websites because it is much easier to adapt from a small screen and low computing power (mobiles) to a large screen and high computing power (desktops)
+*/
+
+/*Android landscape*/
+@media only screen and (min-width: 640px) {
+  section {
+  }
+}
+
+/*iPad potrait*/
+@media only screen and (min-width: 768px) {
+  section {
+    /* padding: 2% 15%; */
+  }
+}
+
+/*large desktop*/
+@media only screen and (min-width: 1600px) {
+  section {
+    /* padding: 5% 25%; */
+  }
+}
+
+/*very large desktop*/
+@media only screen and (min-width: 2100px) {
+  section {
+    /* padding: 5% 30%; */
+  }
 }
