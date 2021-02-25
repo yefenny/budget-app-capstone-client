@@ -3,6 +3,8 @@ import UserContext from '../../contexts/UserContext';
 import { format } from 'date-fns';
 import LanguageService from '../../services/incomes-service';
 import Word from '../Word/Word';
+import FormatService from '../../services/format-service';
+import BalanceService from '../../services/balance-service';
 
 class Dashboard extends Component {
   static defaultProps = {
@@ -10,50 +12,76 @@ class Dashboard extends Component {
   };
   static contextType = UserContext;
 
-  state = { language: {}, words: [], error: null };
+  state = {
+    starting_balance: 0,
+    incomes: 0,
+    expenses: 0,
+    current_balance: 0,
+    negative: false,
+    error: null
+  };
 
   componentDidMount = () => {
-    // LanguageService.getLanguage()
-    //   .then((res) => {
-    //     const { language, words } = res;
-    //     this.context.setLanguage(language);
-    //     this.context.setWords(words);
-    //     this.setState({
-    //       words: this.context.words,
-    //       language: this.context.language
-    //     });
-    //   })
-    //   .catch((error) => {
-    //     this.setState({ error });
-    //     this.context.setError(error);
-    //   });
+    BalanceService.getBalance().then((res) => {
+      const { starting_balance, incomes, expenses, current_balance } = res;
+      this.setState({
+        starting_balance,
+        incomes,
+        expenses,
+        current_balance
+      });
+      if (current_balance < 0) {
+        this.setState({
+          negative: !this.state.negative
+        });
+      }
+    });
   };
   handleStart = () => {
     this.props.history.push('/learn');
   };
   render() {
-    const { language, words } = this.state;
-    const listWords = words.map((word) => {
-      return (
-        <li key={word.id}>
-          <Word word={word} />{' '}
-        </li>
-      );
-    });
+    const {
+      starting_balance,
+      incomes,
+      expenses,
+      current_balance,
+      negative
+    } = this.state;
+
     return (
       <section>
         <div className='dashboard-container'>
           <h2>{format(new Date(), 'MMMM')}</h2>
 
-          <p>Month starting balance: 0.00</p>
+          <p>
+            Month starting balance: $
+            {FormatService.formatNumber(
+              parseFloat(starting_balance).toFixed(2)
+            )}
+          </p>
           <div className='dashboard-incomes'>
-            <p>Incomes: $ 3,000.00</p>
+            <p>
+              Incomes: $
+              {FormatService.formatNumber(parseFloat(incomes).toFixed(2))}
+            </p>
           </div>
           <div className='dashboard-expenses'>
-            <p>Expenses: $ 2,000.00</p>
+            <p>
+              Expenses: $
+              {FormatService.formatNumber(parseFloat(expenses).toFixed(2))}
+            </p>
           </div>
           <div className='dashboard-current'>
-            <p>Current balance: $ 2,000.00</p>
+            <p>
+              Current balance:
+              <span className={negative ? 'red' : ''}>
+                $
+                {FormatService.formatNumber(
+                  parseFloat(current_balance).toFixed(2)
+                )}
+              </span>
+            </p>
           </div>
         </div>
       </section>

@@ -291,6 +291,14 @@ section.public-section form input {
   color: black;
 }
 
+section div.dashboard-container div {
+  width: 100%;
+  background-color: #468966;
+  padding: 10px 10px;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
 section.public-section form button {
   align-self: center;
   width: 150px;
@@ -342,40 +350,14 @@ section div.list-container div.title-add {
 }
 
 section div.dashboard-container div.dashboard-incomes {
-  width: 100%;
-  background-color: #468966;
-  padding: 10px 50px;
-  border-radius: 20px;
   margin-top: 40px;
-}
-
-section div.dashboard-container div.dashboard-expenses {
-  background-color: #468966;
-  padding: 10px 50px;
-  border-radius: 20px;
-  margin-top: 20px;
 }
 
 section div.dashboard-container div.dashboard-current {
   background-color: #6bb251;
-  padding: 10px 50px;
-  border-radius: 20px;
-  margin-top: 20px;
 }
 
-section div.dashboard-container div.dashboard-incomes p {
-  color: #eeeeee;
-}
-
-section div.dashboard-container div.dashboard-expenses p {
-  color: #eeeeee;
-}
-
-section div.dashboard-container div.dashboard-incomes p {
-  color: #eeeeee;
-}
-
-section div.dashboard-container div.dashboard-current p {
+section div.dashboard-container div p {
   color: #eeeeee;
 }
 
@@ -436,6 +418,9 @@ section div.list-container form.searchForm button:hover {
   font-size: 17px;
   margin-top: 5px;
   margin-right: 5px;
+}
+section div.dashboard-container div.dashboard-current span.red {
+  color: red;
 }
 
 /* -------------------------------------
