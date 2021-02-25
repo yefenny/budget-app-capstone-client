@@ -1,27 +1,27 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import IncomesService from '../../services/incomes-service';
+import ExpensesService from '../../services/expenses-service';
 import { format } from 'date-fns';
 
-class IncomeForm extends React.Component {
+class ExpenseForm extends React.Component {
   state = {
     date: format(new Date(), 'yyyy-MM-dd'),
     description: '',
     amount: 0,
-    income_category_id: '',
-    income_categories: [],
+    expense_category_id: '',
+    expense_categories: [],
     error: null
   };
 
   componentDidMount() {
     const { id } = this.props.match.params;
 
-    IncomesService.getIncomeCategories()
-      .then((income_categories) => {
+    ExpensesService.getExpenseCategories()
+      .then((expense_categories) => {
         console.log('here');
-        if (income_categories) {
+        if (expense_categories) {
           this.setState({
-            income_categories
+            expense_categories
           });
         }
       })
@@ -33,14 +33,14 @@ class IncomeForm extends React.Component {
       });
 
     if (id) {
-      IncomesService.getIncomeById(id)
-        .then((income) => {
-          let { date, amount, description, income_category_id } = income;
+      ExpensesService.getExpenseById(id)
+        .then((expense) => {
+          let { date, amount, description, expense_category_id } = expense;
           this.setState({
             date: format(new Date(date), 'yyyy-MM-dd'),
             description,
             amount,
-            income_category_id
+            expense_category_id
           });
         })
         .catch((res) => {
@@ -59,12 +59,12 @@ class IncomeForm extends React.Component {
   };
 
   validateAll = async () => {
-    let { date, amount, description, income_category_id } = this.state;
+    let { date, amount, description, expense_category_id } = this.state;
     const required = {
       date,
       description: description.trim(),
       amount,
-      income_category_id
+      expense_category_id
     };
 
     for (const [key, value] of Object.entries(required)) {
@@ -80,31 +80,31 @@ class IncomeForm extends React.Component {
   validateDate = {};
 
   handleSubmit = (e) => {
-    const { date, amount, description, income_category_id } = this.state;
+    const { date, amount, description, expense_category_id } = this.state;
     const { id } = this.props.match.params;
     e.preventDefault();
     this.setState({
       error: null
     });
     if (this.validateAll()) {
-      const newIncome = {
+      const newExpense = {
         date,
         amount,
         description,
-        income_category_id
+        expense_category_id
       };
       if (id) {
-        IncomesService.updateIncome(id, newIncome)
+        ExpensesService.updateExpense(id, newExpense)
           .then(() => {
-            this.props.history.push('/incomes');
+            this.props.history.push('/expenses');
           })
           .catch((res) => {
             this.setState({ error: res.error });
           });
       } else {
-        IncomesService.createIncome(newIncome)
+        ExpensesService.createExpense(newExpense)
           .then(() => {
-            this.props.history.push('/incomes');
+            this.props.history.push('/expenses');
           })
           .catch((res) => {
             this.setState({ error: res.error });
@@ -116,14 +116,14 @@ class IncomeForm extends React.Component {
   render() {
     const {
       date,
-      income_category_id,
+      expense_category_id,
       description,
-      income_categories,
+      expense_categories,
       amount,
       error
     } = this.state;
     const { id } = this.props.match.params;
-    const incomeCategoriesOption = income_categories.map((val) => {
+    const expenseCategoriesOption = expense_categories.map((val) => {
       return (
         <option key={val.id} value={val.id}>
           {val.title}
@@ -133,7 +133,7 @@ class IncomeForm extends React.Component {
     return (
       <section>
         <div className='private-form'>
-          <h2>{id ? 'Edit Income' : 'New Income'}</h2>
+          <h2>{id ? 'Edit Expense' : 'New Expense'}</h2>
           <form
             action=''
             onSubmit={(e) => {
@@ -168,18 +168,18 @@ class IncomeForm extends React.Component {
               }}
               required
             />
-            <label htmlFor='income_category_id'>Category</label>
+            <label htmlFor='expense_category_id'>Category</label>
             <select
-              name='income_category_id'
-              id='income_category_id'
-              value={income_category_id}
+              name='expense_category_id'
+              id='expense_category_id'
+              value={expense_category_id}
               onChange={(e) => {
                 this.handleInputChange(e);
               }}
               required
             >
               <option value=''>--------- Select ---------</option>
-              {incomeCategoriesOption}
+              {expenseCategoriesOption}
             </select>
             <label htmlFor='description'>Description</label>
             <textarea
@@ -207,4 +207,4 @@ class IncomeForm extends React.Component {
   }
 }
 
-export default withRouter(IncomeForm);
+export default withRouter(ExpenseForm);

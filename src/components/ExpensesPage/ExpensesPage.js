@@ -73,58 +73,60 @@ class ExpensesPage extends Component {
       );
     });
     return (
-      <div className='list-container'>
-        <div className='title-add'>
-          <h2>Expenses</h2>
-          <button
-            type='button'
-            className='add-income'
-            onClick={() => {
-              this.props.history.push('/new/income');
+      <section>
+        <div className='list-container'>
+          <div className='title-add'>
+            <h2>Expenses</h2>
+            <button
+              type='button'
+              className='add-expense'
+              onClick={() => {
+                this.props.history.push('/new/expense');
+              }}
+            >
+              {' '}
+              + Add
+            </button>
+          </div>
+          <form
+            className='searchForm'
+            onSubmit={(e) => {
+              this.handleSubmit(e);
             }}
           >
-            {' '}
-            + Add
-          </button>
+            <label htmlFor='fromDate'>From:</label>
+            <input
+              type='date'
+              id='fromDate'
+              name='fromDate'
+              value={fromDate}
+              max={new Date()}
+              onChange={(e) => {
+                this.handleInputChange(e);
+              }}
+            />
+            <label htmlFor='toDate'>To:</label>
+            <input
+              type='date'
+              id='toDate'
+              name='toDate'
+              value={toDate}
+              max={new Date()}
+              onChange={(e) => {
+                this.handleInputChange(e);
+              }}
+            />
+            <button type='submit' name='searchButton'>
+              Search
+            </button>
+            <button type='button' name='allButton' onClick={this.handleAll}>
+              All
+            </button>
+          </form>
+          <div className='expense-form-error'>{error && <p>{error}</p>}</div>
+          <ul>{items}</ul>
         </div>
-        <form
-          className='searchForm'
-          onSubmit={(e) => {
-            this.handleSubmit(e);
-          }}
-        >
-          <label htmlFor='fromDate'>From:</label>
-          <input
-            type='date'
-            id='fromDate'
-            name='fromDate'
-            value={fromDate}
-            max={new Date()}
-            onChange={(e) => {
-              this.handleInputChange(e);
-            }}
-          />
-          <label htmlFor='toDate'>To:</label>
-          <input
-            type='date'
-            id='toDate'
-            name='toDate'
-            value={toDate}
-            max={new Date()}
-            onChange={(e) => {
-              this.handleInputChange(e);
-            }}
-          />
-          <button type='submit' name='searchButton'>
-            Search
-          </button>
-          <button type='button' name='allButton' onClick={this.handleAll}>
-            All
-          </button>
-        </form>
-        <div className='income-form-error'>{error && <p>{error}</p>}</div>
-        <ul>{items}</ul>
-      </div>
+      </section>
     );
   }
 }

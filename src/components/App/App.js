@@ -10,7 +10,8 @@ import IncomesPage from '../IncomesPage/IncomesPage';
 import IncomeForm from '../IncomeForm/IncomeForm';
 import RegistrationForm from '../RegistrationForm/RegistrationForm';
 import LoginForm from '../LoginForm/LoginForm';
-import ExpensesPage from '../ExpensesPage/ExpensesPage'
+import ExpensesPage from '../ExpensesPage/ExpensesPage';
+import ExpenseForm from '../ExpenseForm/ExpenseForm';
 
 export default class App extends Component {
   state = { hasError: false };
@@ -32,10 +33,9 @@ export default class App extends Component {
             <PrivateRoute path={'/incomes'} component={IncomesPage} />
             <PrivateRoute path={'/expenses'} component={ExpensesPage} />
             <PrivateRoute path={'/new/income'} component={IncomeForm} />
-            <PrivateRoute
-              path={'/edit/income/:id'}
-              component={IncomeForm}
-            />
+            <PrivateRoute path={'/new/expense'} component={ExpenseForm} />
+            <PrivateRoute path={'/edit/income/:id'} component={IncomeForm} />
+            <PrivateRoute path={'/edit/expense/:id'} component={ExpenseForm} />
             <PublicOnlyRoute path={'/register'} component={RegistrationForm} />
             <PublicOnlyRoute path={'/login'} component={LoginForm} />
             <Route component={NotFoundRoute} />

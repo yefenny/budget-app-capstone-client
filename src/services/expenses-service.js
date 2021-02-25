@@ -23,7 +23,7 @@ const ExpensesService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
-  getIncomeCategories() {
+  getExpenseCategories() {
     return fetch(`${config.API_ENDPOINT}/expense-categories/`, {
       method: 'GET',
       headers: {
@@ -34,7 +34,7 @@ const ExpensesService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
-  createIncome(values) {
+  createExpense(values) {
     return fetch(`${config.API_ENDPOINT}/expenses/`, {
       method: 'POST',
       headers: {
@@ -50,7 +50,7 @@ const ExpensesService = {
       }
     });
   },
-  updateIncome(id, values) {
+  updateExpense(id, values) {
     return fetch(`${config.API_ENDPOINT}/expenses/${id}`, {
       method: 'PATCH',
       headers: {
@@ -66,7 +66,7 @@ const ExpensesService = {
       }
     });
   },
-  getIncomeById(id) {
+  getExpenseById(id) {
     return fetch(`${config.API_ENDPOINT}/expenses/${id}`, {
       method: 'GET',
       headers: {
@@ -76,7 +76,7 @@ const ExpensesService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
-  deleteIncome(id) {
+  deleteExpense(id) {
     return fetch(`${config.API_ENDPOINT}/expenses/${id}`, {
       method: 'DELETE',
       headers: {

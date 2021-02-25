@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UserContext from '../../contexts/UserContext';
+import { format } from 'date-fns';
 import LanguageService from '../../services/incomes-service';
 import Word from '../Word/Word';
 
@@ -40,16 +41,22 @@ class Dashboard extends Component {
       );
     });
     return (
-      <div className='dashboard-container'>
-        {/* <h2>{language.name}</h2>
-        <button onClick={this.handleStart}>Start practicing</button>
-        <h3>Words to practice</h3>
-        <ul> {listWords}</ul>
+      <section>
+        <div className='dashboard-container'>
+          <h2>{format(new Date(), 'MMMM')}</h2>
 
-        <span className='total-score'>
-          Total correct answers: {language.total_score}
-        </span> */}
-      </div>
+          <p>Month starting balance: 0.00</p>
+          <div className='dashboard-incomes'>
+            <p>Incomes: $ 3,000.00</p>
+          </div>
+          <div className='dashboard-expenses'>
+            <p>Expenses: $ 2,000.00</p>
+          </div>
+          <div className='dashboard-current'>
+            <p>Current balance: $ 2,000.00</p>
+          </div>
+        </div>
+      </section>
     );
   }
 }

@@ -73,7 +73,8 @@ class IncomesPage extends Component {
       );
     });
     return (
-      <div className='list-container'>
+      <section>
+        <div className='list-container'>
         <div className='title-add'>
           <h2>Incomes</h2>
           <button
@@ -125,6 +126,7 @@ class IncomesPage extends Component {
         <div className='income-form-error'>{error && <p>{error}</p>}</div>
         <ul>{items}</ul>
       </div>
+      </section>
     );
   }
 }

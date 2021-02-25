@@ -211,6 +211,11 @@ section div.private-form {
   font-size: 17px;
   text-align: left;
 }
+
+section div.dashboard-container p {
+  font-weight: 700;
+  color: #468966;
+}
 section div.private-form textarea {
   font-family: 'Titillium Web', sans-serif;
   font-weight: 500;
@@ -286,6 +291,19 @@ section.public-section form input {
   color: black;
 }
 
+section.public-section form button {
+  align-self: center;
+  width: 150px;
+  margin: 15px;
+  background-color: #6bb251;
+}
+
+section.public-section footer button {
+  align-self: center;
+  width: 150px;
+  margin-top: 10px;
+}
+
 section div.item-details div.row {
   display: flex;
   justify-content: space-between;
@@ -301,48 +319,6 @@ section div.private-form div.form-buttons {
 section div.private-form div.error {
   color: red;
   padding-left: 10px;
-}
-
-section div.dashboard-container button,
-section div.feedback-container button {
-  align-self: center;
-  font-size: 20px;
-  margin: 15px;
-  border-radius: 20px;
-  font-style: italic;
-  color: #034078;
-}
-
-section div.dashboard-container h3 {
-  align-self: center;
-  font-size: 25px;
-  margin: 15px;
-  border-radius: 20px;
-  font-style: italic;
-  color: #034078;
-}
-
-section div.learning-container form {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  padding: 4%;
-  background-color: #468966;
-  border-radius: 15px;
-  color: #fefcfb;
-}
-
-section.public-section form button {
-  align-self: center;
-  width: 150px;
-  margin: 15px;
-  background-color: #6bb251;
-}
-
-section.public-section footer button {
-  align-self: center;
-  width: 150px;
-  margin-top: 10px;
 }
 
 section div.list-container form.searchForm {
@@ -363,6 +339,44 @@ section div.list-container div.title-add {
   flex-direction: column;
   align-items: baseline;
   flex-wrap: wrap;
+}
+
+section div.dashboard-container div.dashboard-incomes {
+  width: 100%;
+  background-color: #468966;
+  padding: 10px 50px;
+  border-radius: 20px;
+  margin-top: 40px;
+}
+
+section div.dashboard-container div.dashboard-expenses {
+  background-color: #468966;
+  padding: 10px 50px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+section div.dashboard-container div.dashboard-current {
+  background-color: #6bb251;
+  padding: 10px 50px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+section div.dashboard-container div.dashboard-incomes p {
+  color: #eeeeee;
+}
+
+section div.dashboard-container div.dashboard-expenses p {
+  color: #eeeeee;
+}
+
+section div.dashboard-container div.dashboard-incomes p {
+  color: #eeeeee;
+}
+
+section div.dashboard-container div.dashboard-current p {
+  color: #eeeeee;
 }
 
 section div.list-container div.title-add button {
