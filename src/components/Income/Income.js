@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import FormatService from '../../services/format-service';
 import { format } from 'date-fns';
 import PropTypes from 'prop-types';

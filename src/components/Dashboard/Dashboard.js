@@ -74,8 +74,7 @@ class Dashboard extends Component {
           </div>
           <div className='dashboard-current'>
             <p>
-              Current balance:
-              <span className={negative ? 'red' : ''}>
+              Current balance: <span className={negative ? 'red' : ''}>
                 $
                 {FormatService.formatNumber(
                   parseFloat(current_balance).toFixed(2)
