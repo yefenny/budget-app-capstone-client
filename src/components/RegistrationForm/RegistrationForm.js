@@ -46,6 +46,11 @@ class RegistrationForm extends Component {
     return (
       <section className='public-section'>
         <h2>Sign up</h2>
+        <p>
+          Don't know how you expend all your money ? Budget app can help you,
+          This app allows you to track your expenses and incomes easily an get
+          in control of your spending!
+        </p>
         <form onSubmit={this.handleSubmit}>
           <div role='alert'>{error && <p>{error}</p>}</div>
           <div>
