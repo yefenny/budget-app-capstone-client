@@ -44,6 +44,7 @@ class LoginForm extends Component {
     const { error } = this.state;
     return (
       <section className='public-section'>
+        <h2>Log in</h2>
         <form className='LoginForm' onSubmit={this.handleSubmit}>
           <div role='alert'>{error && <p>{error}</p>}</div>
           <div>
