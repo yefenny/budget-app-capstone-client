@@ -15,7 +15,7 @@ class IncomeForm extends React.Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
-
+// Get Income Categories to load Income Categories Select
     IncomesService.getIncomeCategories()
       .then((income_categories) => {
         console.log('here');
@@ -31,7 +31,7 @@ class IncomeForm extends React.Component {
           error: error.error
         });
       });
-
+// If id it will know that is the form to edit and will fetch the specific Income by Id
     if (id) {
       IncomesService.getIncomeById(id)
         .then((income) => {
@@ -58,6 +58,7 @@ class IncomeForm extends React.Component {
     });
   };
 
+  // Validate that required values are not empty
   validateAll = async () => {
     let { date, amount, description, income_category_id } = this.state;
     const required = {
@@ -86,6 +87,7 @@ class IncomeForm extends React.Component {
     this.setState({
       error: null
     });
+    // if required values are not empty
     if (this.validateAll()) {
       const newIncome = {
         date,
@@ -93,6 +95,7 @@ class IncomeForm extends React.Component {
         description,
         income_category_id
       };
+    // if id exists the Income will be updated
       if (id) {
         IncomesService.updateIncome(id, newIncome)
           .then(() => {
@@ -102,6 +105,7 @@ class IncomeForm extends React.Component {
             this.setState({ error: res.error });
           });
       } else {
+        // if id doesn't exists a new Income will be created
         IncomesService.createIncome(newIncome)
           .then(() => {
             this.props.history.push('/incomes');
@@ -123,6 +127,7 @@ class IncomeForm extends React.Component {
       error
     } = this.state;
     const { id } = this.props.match.params;
+    // Create the options for Income Categories
     const incomeCategoriesOption = income_categories.map((val) => {
       return (
         <option key={val.id} value={val.id}>
@@ -135,7 +140,6 @@ class IncomeForm extends React.Component {
         <div className='private-form'>
           <h2>{id ? 'Edit Income' : 'New Income'}</h2>
           <form
-            action=''
             onSubmit={(e) => {
               this.handleSubmit(e);
             }}
@@ -147,7 +151,7 @@ class IncomeForm extends React.Component {
               id='date'
               name='date'
               defaultValue={date}
-              max={new Date()}
+              max={format(new Date(), 'yyyy-MM-dd')}
               onChange={(e) => {
                 this.handleInputChange(e);
               }}

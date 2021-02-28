@@ -72,6 +72,8 @@ class LoginForm extends Component {
           </div>
 
           <Button type='submit'>Login</Button>
+          <span className='login-user'>Test user: admin</span>
+          <span className='login-user'>Password: 'pass'</span>
         </form>
       </section>
     );

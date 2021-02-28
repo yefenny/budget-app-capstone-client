@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import FormatService from '../../services/format-service';
 import { format } from 'date-fns';
 import PropTypes from 'prop-types';
@@ -29,6 +29,7 @@ class Expense extends Component {
     const { id, date, description, amount, category } = this.props.object;
 
     let d = new Date(date);
+    // If Date exists convert date to the correct format to the datepicker
     const newDate = d ? format(d, 'MM/dd/yyyy') : '';
 
     return (

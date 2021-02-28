@@ -12,6 +12,7 @@ class Header extends Component {
   };
 
   renderLogoutLink() {
+    // Render for logged In User
     return (
       <div>
         <span>{this.context.user.name}</span>
@@ -27,6 +28,7 @@ class Header extends Component {
   }
 
   renderLoginLink() {
+     // Render for unregistered or not Logged in User
     return (
       <nav>
         <Link to='/login'>Login</Link> <Link to='/register'>Sign up</Link>

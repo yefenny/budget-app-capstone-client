@@ -30,7 +30,7 @@ class ExpensesPage extends Component {
   handleSubmit(e) {
     const { fromDate, toDate } = this.state;
     e.preventDefault();
-
+// Filter all expenses from Date to Date
     ExpensesService.filterExpenses(fromDate, toDate)
       .then((expenses) => {
         this.setState({
@@ -45,6 +45,7 @@ class ExpensesPage extends Component {
       });
   }
   getAllExpenses() {
+    // Get all Expenses
     ExpensesService.getExpenses()
       .then((expenses) => {
         if (expenses) {

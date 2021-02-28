@@ -15,7 +15,7 @@ class ExpenseForm extends React.Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
-
+    // Get Expenses categories to load the expense_categories select
     ExpensesService.getExpenseCategories()
       .then((expense_categories) => {
         console.log('here');
@@ -31,7 +31,7 @@ class ExpenseForm extends React.Component {
           error: error.error
         });
       });
-
+    // If id it will know that is the form to edit and will fetch the specific Expense by Id
     if (id) {
       ExpensesService.getExpenseById(id)
         .then((expense) => {
@@ -57,7 +57,7 @@ class ExpenseForm extends React.Component {
       [name]: value
     });
   };
-
+  // Validate that required values are not empty
   validateAll = async () => {
     let { date, amount, description, expense_category_id } = this.state;
     const required = {
@@ -86,6 +86,7 @@ class ExpenseForm extends React.Component {
     this.setState({
       error: null
     });
+    // if required values are not empty
     if (this.validateAll()) {
       const newExpense = {
         date,
@@ -93,6 +94,7 @@ class ExpenseForm extends React.Component {
         description,
         expense_category_id
       };
+      // if id exists the Income will be updated
       if (id) {
         ExpensesService.updateExpense(id, newExpense)
           .then(() => {
@@ -102,6 +104,7 @@ class ExpenseForm extends React.Component {
             this.setState({ error: res.error });
           });
       } else {
+        // if id doesn't exists a new Income will be created
         ExpensesService.createExpense(newExpense)
           .then(() => {
             this.props.history.push('/expenses');
@@ -123,6 +126,7 @@ class ExpenseForm extends React.Component {
       error
     } = this.state;
     const { id } = this.props.match.params;
+      // Create the options for Expense Categories
     const expenseCategoriesOption = expense_categories.map((val) => {
       return (
         <option key={val.id} value={val.id}>
@@ -135,7 +139,6 @@ class ExpenseForm extends React.Component {
         <div className='private-form'>
           <h2>{id ? 'Edit Expense' : 'New Expense'}</h2>
           <form
-            action=''
             onSubmit={(e) => {
               this.handleSubmit(e);
             }}
@@ -147,7 +150,7 @@ class ExpenseForm extends React.Component {
               id='date'
               name='date'
               defaultValue={date}
-              max={new Date()}
+              max={format(new Date(), 'yyyy-MM-dd')}
               onChange={(e) => {
                 this.handleInputChange(e);
               }}

@@ -11,6 +11,7 @@ class Income extends Component {
   };
 
   handleToggle = () => {
+    // Handle Income toggle on click 
     this.setState({
       toggled: !this.state.toggled
     });

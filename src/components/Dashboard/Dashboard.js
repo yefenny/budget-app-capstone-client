@@ -20,6 +20,7 @@ class Dashboard extends Component {
   };
 
   componentDidMount = () => {
+    // Get the balance at the start of the month, the total of the current month Incomes and Expenses and the current balance
     BalanceService.getBalance().then((res) => {
       const { starting_balance, incomes, expenses, current_balance } = res;
       this.setState({
