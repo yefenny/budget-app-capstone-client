@@ -45,6 +45,7 @@ class RegistrationForm extends Component {
     const { error } = this.state;
     return (
       <section className='public-section'>
+        <h2>Sign up</h2>
         <form onSubmit={this.handleSubmit}>
           <div role='alert'>{error && <p>{error}</p>}</div>
           <div>
