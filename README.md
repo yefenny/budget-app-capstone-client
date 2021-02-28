@@ -1,14 +1,12 @@
-# Appfrench
+# Budget app
 
-Appfrench is an app that use the space-repetition technique to help you learn new words in french.
+Don't know how you expend all your money ? Budget app can help you, This app allows you to track your expenses and incomes easily an get in control of your spending!
 
 ### 1. Working Prototype
 
-You can access a working prototype of the React app here: https://appfrench-client.yefenny.vercel.app/ and Node app here: https://hidden-reaches-87284.herokuapp.com/
+You can access a working prototype of the React app here:https://budget-app-capstone-client.vercel.app/ and Node app here: https://budget-app-capstone.herokuapp.com/
 
 ### 2. User Stories
-
-This app is a logged-in user
 
 ###### Landing Page (Importance - High) (Est: 1h)
 
@@ -28,27 +26,61 @@ This app is a logged-in user
 - I want to register to use this app
 - So I can create a personal account.
 
-###### Dashboard Page (Importance - High) (Est: 2h)
+###### Home Page (Importance - Medium) (Est: 2h)
 
-- As a logged in user, I'm directed to a dashboard where I can see my progress learning my language.
+- As a logged-in user,
+- I want to be able to preview the content of the app,
+- So i can decide what section I want to navigate to.
+- I can see the month initial balance.
+- I can see the total amount of my month expenses.
+- I can see the total amount of my month incomes.
+- I would be able to see the current balance.
 
-###### Learning page: shows the next word (Importance - High) (Est: 2h)
+###### Expenses Page (Importance - Medium) (Est: 3h)
 
-- As a logged in user, I can learn words using spaced repetition.
+- As a logged-in user,
+- I would be able to see all month expenses,
+- I can choose to edit or delete any expense,
+- I can filter all expenses by date.
 
-###### Learning page: answer feedback (Importance - High) (Est: 2h)
+###### New Expense Page (Importance - Medium) (Est: 3h)
 
-- As a logged in user, I can see feedback on my submitted answers.
+- As a logged-in user,
+- I would be able to add a new expense.
+- The new expense will have date, category, title and amount.
+
+###### Edit Expense Page (Importance - Medium) (Est: 3h)
+
+- As a logged-in user,
+- I would be able to edit a existing expense.
+
+###### Incomes Page (Importance - Medium) (Est: 3h)
+
+- As a logged-in user,
+- I would be able to see all month incomes,
+- I can choose to edit or delete any income,
+- I can filter all incomes by date.
+
+###### New Income Page (Importance - Medium) (Est: 3h)
+
+- As a logged-in user,
+- I would be able to add a new income.
+- The new income will have date, category, title and amount.
+
+###### Edit Income Page (Importance - Medium) (Est: 3h)
+
+- As a logged-in user,
+- I would be able to edit a existing income.
 
 ### 3. Functionality
 
 The app's functionality includes:
 
-- Every User has the ability to create an account
-- A registered User has the ability to log in.
-- A logged in User can see the language that your learning on the Dashboard title.
-- A logged in User can see the the progress of practiced words on the Dashboard.
-- A logged in User can practice words in french.
+- Every User has the ability to create an account and log in.
+- A logged in User has the ability to add see the total amount of incomes and expenses.
+- A logged in User can add new incomes and expenses.
+- A logged in User can filter incomes and expenses by date.
+- A logged in user can delete or edit an income or expense.
 
 ### 4. Technology
 
@@ -56,93 +88,118 @@ The app's functionality includes:
 - Back-End: Node.js, Express.js, Mocha, Chai, RESTful API Endpoints, Postgres
 - Development Environment: Heroku, DBeaver
 
-### 5. Wireframes
+### 5. Wireframes (to do now)
 
-Register Page
-![Register Page](/github-images/wireframes/Appfrench-signup.png)
+Landing Page
 :-------------------------:
-Login Page
-![Login Page](/github-images/wireframes/Appfrench-login.png)
-:-------------------------:
+![Landing Page](./github-images/wireframes/Budget-app-landigpage.png)
+Sign Up Page
+![Sign Up Page](./github-images/wireframes/Budget-app-signup.png)
+Log in Page
+![Log in Page](./github-images/wireframes/Budget-app-login.png)
 Dashboard Page
-![Dashboard Page](/github-images/wireframes/Appfrench-Dashboard.png)
-:-------------------------:
-Learning Page: Next Word
-![Learning Page: Next Word](/github-images/wireframes/Appfrench-Learning-page-next-word.png)
-:-------------------------:
-Learning Page: Incorrect Answer
-![Learning Page: Incorrect Answer](/github-images/wireframes/Appfrench-Learning-page-incorrect.png)
-:-------------------------:
-Learning Page: Correct Answer
-![Learning Page: Correct Answer](/github-images/wireframes/Appfrench-Learning-page-correct-a.png)
+![Dashboard Page](./github-images/wireframes/Budget-app-home-page.png)
+Incomes Page
+![Incomes Page](./github-images/wireframes/Budget-app-incomes-page.png)
+New Income Page
+![New income Page](./github-images/wireframes/Budget-app-new-income.png)
+Edit Income Page
+![Edit income Page](./github-images/wireframes/Budget-app-edit-income.png)
+Expenses Page
+![Expense Page](./github-images/wireframes/Budget-app-expenses.png)
+New Expense Page
+![New expense Page](./github-images/wireframes/Budget-app-new-expense.png)
+Edit Expense Page
+![Edit Expense Page](./github-images/wireframes/Budget-app-edit-expense.png)
 
-### 6. Front-end Structure - React Components Map
+### 6. Front-end Structure - React Components Map (to do later)
 
-- **Index.js** (stateless)
+- (Example) **Index.js** (stateless)
   - **App.js** (stateful)
-    - **LoginRoute.js** (stateless) -
-      - **LoginForm.js** (stateful) -
-    - **RegistrationRoute.js** (stateless) -
-      - **RegistrationForm.js** (stateful) -
-    - **DashboardRoute.js** (stateless) -
-      - **Dashboard.js** (stateful) -
-        - **Word.js** (stateless) -
-    - **LearningRoute.js** (stateless) -
-      - **LearningPage.js** (stateful) -
+    - **LandingPage.js** (stateful) - gets the _"prop name"_ and the _"callback prop name"_ from the **App.js**
+      - **Login.js** (stateful) -
+      - **Register.js** (stateful) -
     - **Navbar.js** (stateless) -
 
 ### 7. Back-end Structure - Business Objects
 
-- User (database table)
+- users (database table)
 
-  - id (serial)
-  - name (text)
+  - id (auto-generated)
   - username (email validation)
   - password (at least 8 chars, at least one alpha and a special character validation)
 
-- Word (database table)
+- income_categories (database table)
 
-  - id (serial)
-  - original (text)
-  - translation (text)
-  - memory_value (integer)
-  - correct_count (integer)
-  - incorrect_count (integer)
-  - language_id (integer)
-  - next (integer)
+  - id (auto-generated)
+  - title (varchar validation)
 
-- Language (database table)
-  - id (serial)
-  - name (text)
-  - total_score (integer)
-  - user_id (integer)
-  - head (integer)
+- incomes (database table)
 
-### 8. API Documentation
+  - id (auto-generated)
+  - user_id (foreign key from users table)
+  - date (date validation)
+  - description (varchar (255) not null)
+  - amount (double not null )
+  - income_category_id (foreign key from income_category table);
+
+- expense_categories (database table)
+
+  - id (auto-generated)
+  - title (varchar validation)
+
+- expenses (database table)
+  - id (auto-generated)
+  - user_id (foreign key from users table)
+  - date (date validation)
+  - description (varchar (255) not null)
+  - amount (double not null )
+  - expense_category_id (foreign key from income_category table);
+
+### 8. API Documentation (to do later)
 
 API Documentation details:
 
 ```text
 /api
 .
-├── /language
+├── /incomes
 │   └── GET
 │       ├── /
-│       ├── /head
+│       ├── /find/:fromDate/:toDate
+│       ├── /:id
 │   └── POST
-│       ├── /guess
-├── /user
+│       ├── /
+│   └── PATCH
+│       ├── /:id
+│   └── DELETE
+│       ├── /:id
+├── /users
 │   └── POST
-│       └── /
+│       ├── /
 ├── /auth
 │   └── POST
 │       └── /token
-│   └── PUT
-│       └── /token
-
+├── /expenses
+│   └── GET
+│       ├── /
+│       ├── /:id
+│       ├── /find/:fromDate/:toDate
+│   └── POST
+│       └── /
+│   └── PATCH
+│       └── /:id
+│   └── DELETE
+│       └── /:id
+├── /expense-categories
+│   └── GET
+│       ├── /
+├── /income-categories
+│   └── GET
+│       ├── /
 ```
 
-#### GET `/api/language/`
+#### GET `/api/incomes/`
 
 ```js
 // req.header
@@ -151,104 +208,60 @@ API Documentation details:
 }
 
 // res.body
+[
 
-{
-    "language": {
-        "id": 1,
-        "name": "French",
-        "user_id": 1,
-        "head": 1,
-        "total_score": 0
+     {
+        "id": 7,
+        "date": "2021-02-25T05:00:00.000Z",
+        "description": "Other",
+        "amount": 100,
+        "category": "Other Income"
     },
-    "words": [
-        {
-            "id": 1,
-            "language_id": 1,
-            "original": "apprendre",
-            "translation": "learn",
-            "next": 2,
-            "memory_value": 1,
-            "correct_count": 0,
-            "incorrect_count": 1
-        },
-        {
-            "id": 2,
-            "language_id": 1,
-            "original": "ordinateur",
-            "translation": "computer",
-            "next": 3,
-            "memory_value": 1,
-            "correct_count": 0,
-            "incorrect_count": 0
-        },
-        {
-            "id": 3,
-            "language_id": 1,
-            "original": "family",
-            "translation": "famille",
-            "next": 4,
-            "memory_value": 1,
-            "correct_count": 0,
-            "incorrect_count": 0
-        },
-        {
-            "id": 4,
-            "language_id": 1,
-            "original": "dormir",
-            "translation": "sleep",
-            "next": 5,
-            "memory_value": 1,
-            "correct_count": 0,
-            "incorrect_count": 0
-        },
-        {
-            "id": 5,
-            "language_id": 1,
-            "original": "essayer",
-            "translation": "try",
-            "next": 6,
-            "memory_value": 1,
-            "correct_count": 0,
-            "incorrect_count": 0
-        },
-        {
-            "id": 6,
-            "language_id": 1,
-            "original": "améliorer",
-            "translation": "improve",
-            "next": 7,
-            "memory_value": 1,
-            "correct_count": 0,
-            "incorrect_count": 0
-        },
-        {
-            "id": 7,
-            "language_id": 1,
-            "original": "eau",
-            "translation": "water",
-            "next": 8,
-            "memory_value": 1,
-            "correct_count": 0,
-            "incorrect_count": 0
-        },
-        {
-            "id": 8,
-            "language_id": 1,
-            "original": "pluie",
-            "translation": "rain",
-            "next": null,
-            "memory_value": 1,
-            "correct_count": 0,
-            "incorrect_count": 0
-        }
-    ]
+    {
+        "id": 3,
+        "date": "2021-02-01T05:00:00.000Z",
+        "description": "Supermarket 22",
+        "amount": 40,
+        "category": "Financial Aid"
+    },
+    {
+        "id": 8,
+        "date": "2021-02-01T05:00:00.000Z",
+        "description": "Supermarket 1",
+        "amount": 35.2,
+        "category": "Financial Aid"
+    },
+   ...
+]
+```
+
+#### GET `/api/incomes/:id`
+
+```js
+// req.header
+{
+    "Authorization": "Bearer ${token}",
 }
 
+// req.params
+{
+  id:id
+}
+
+// res.body
+
+ {
+        "id": 8,
+        "date": "2021-02-01T05:00:00.000Z",
+        "description": "Supermarket 1",
+        "amount": 35.2,
+        "category": "Financial Aid"
+}
 
 
 ```
 
-#### GET `/api/language/head`
+#### GET `/api/income-categories/`
 
 ```js
 // req.header
@@ -257,17 +270,81 @@ API Documentation details:
 }
 
 // res.body
+[
+
+    {
+        "id": 1,
+        "title": "Salary"
+    },
+    {
+        "id": 2,
+        "title": "Dividends"
+    },
+    {
+        "id": 3,
+        "title": "Financial Aid"
+    },
+   ...
+]
+```
+
+#### GET `/api/incomes/find/:fromDate/:toDate`
+
+```js
+// req.header
+{
+    "Authorization": "Bearer ${token}",
+}
+// req.params
+{
+  fromDate:fromDate,
+  toDate:toDate
+}
+
+// res.body
+[
+
+     {
+        "id": 2,
+        "date": "2021-01-29T05:00:00.000Z",
+        "description": "Aid 2",
+        "amount": 500,
+        "category": "Financial Aid"
+    },
+   ...
+]
+```
+
+#### POST `/api/incomes/`
+
+```js
+// req.header
+{
+    "Authorization": "Bearer ${token}",
+}
+
+// req.body
+
+ {"user_id": "1",
+  "date": "2021/02/01",
+  "description": "Supermarket 1",
+  "amount": "35.20",
+  "income_category_id":"3"}
+
+// res.body
 
 {
-    "nextWord": "ordinateur",
-    "wordCorrectCount": 4,
-    "wordIncorrectCount": 0,
-    "totalScore": 30
+    "id": 9,
+    "user_id": 1,
+    "date": "2021-02-01T05:00:00.000Z",
+    "description": "Supermarket 1",
+    "amount": 35.2,
+    "income_category_id": 3
 }
 
 ```
 
-#### POST `/api/language/guess`
+#### PATCH `/api/incomes/:id`
 
 ```js
 // req.header
@@ -277,100 +354,308 @@ API Documentation details:
 
 // req.body
 {
-  guess: 'guess'
+  id: id
 }
+// res.body
+
+ { "date": "2021/02/11",
+ "description": "Supermarket 2",
+ "amount": "35.20",
+ "income_category_id":"3"}
 
 // res.body
 
-{
-  "nextWord": "test-next-word-from-generic-guess",
-  "wordCorrectCount": 777,
-  "wordIncorrectCount": 777,
-  "totalScore": 777,
-  "answer": "test-answer-from-generic-guess",
-  "isCorrect": true
+  {
+
 }
 
 ```
 
-#### POST `/api/user/`
+#### Delete `/api/incomes/:id`
 
 ```js
+// req.header
+{
+    "Authorization": "Bearer ${token}",
+}
 
+// req.params
+{
+  id:id
+}
+
+
+// res.body
+
+  {
+
+}
+
+```
+
+#### POST `/api/auth/token`
+
+```js
 
 // req.body
-{
-  username: 'username',
-  name: 'name',
-  password: 'password'
+
+
+  {
+    "user_name": "user test",
+"password": "password"
 }
+
 
 // res.body
 
-{
-    authToken: 'asKNNJhkjnnfsdnfkjneasKNNJhkjnnfsdnfkjneasKNNJhkjnnfsdnfkjneasKNNJhkjnnfsdnfkjneasKNNJhkjnnfsdnfkjne'
 
+{
+    "authToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE2MTE4Nzk2NzUsInN1YiI6ImR1bmRlckBnbWFpbC5jb20ifQ.ku3rU1lGeWVEUvA-_NWDQoM7hauIZU1V4K0EmPgMwlY"
 }
+
 
 ```
 
-#### POST `/api/auth/`
+#### POST `/api/users/`
 
 ```js
-
 
 // req.body
+
 {
-  username: 'username',
-  password: 'password'
+"user_name": "test@gmail.com",
+"name": "test name",
+"password": "testpassword"
 }
+
+
 
 // res.body
 
-{
 
-    authToken: 'asKNNJhkjnnfsdnfkjneasKNNJhkjnnfsdnfkjneasKNNJhkjnnfsdnfkjneasKNNJhkjnnfsdnfkjneasKNNJhkjnnfsdnfkjne'
+{
+    "authToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE2MTE4Nzk2NzUsInN1YiI6ImR1bmRlckBnbWFpbC5jb20ifQ.ku3rU1lGeWVEUvA-_NWDQoM7hauIZU1V4K0EmPgMwlY"
 }
+
 
 ```
 
-#### PUT `/api/auth/`
+#### GET `/api/expenses/
 
 ```js
+// req.header
+{
+    "Authorization": "Bearer ${token}",
+}
+
+// res.body
+[
+   {
+        "id": 5,
+        "date": "2021-02-25T05:00:00.000Z",
+        "description": "G",
+        "amount": 333,
+        "category": "Groceries"
+    },
+    {
+        "id": 3,
+        "date": "2021-02-12T05:00:00.000Z",
+        "description": "Rent",
+        "amount": 1200,
+        "category": "Mortgage / Rent"
+    },
+    ...
+]
+
+
+```
+
+#### GET `/api/expenses/:id`
+
+```js
+// req.header
+{
+    "Authorization": "Bearer ${token}",
+}
+
+// req.params
+{
+  id: id
+}
+
+// res.body
+
+   {
+        "id": 5,
+        "date": "2021-02-25T05:00:00.000Z",
+        "description": "G",
+        "amount": 333,
+        "category": "Groceries"
+    }
+
+
+
+```
+
+#### GET `/api/expenses/find/:fromDate/:toDate`
+
+```js
+// req.header
+{
+    "Authorization": "Bearer ${token}",
+}
+
+// req.params
+{
+  fromDate:fromDate,
+  toDate:toDate
+}
+
+// res.body
+
+   [
+    {
+        "id": 2,
+        "date": "2021-02-06T05:00:00.000Z",
+        "description": "Supermarket 3",
+        "amount": 40.01,
+        "category": "Groceries"
+    },
+    {
+        "id": 3,
+        "date": "2021-02-12T05:00:00.000Z",
+        "description": "Rent",
+        "amount": 1200,
+        "category": "Mortgage / Rent"
+    },
+]
+
+
+```
+
+#### POST `/api/expenses/`
+
+```js
+
+// req.header
+{
+    "Authorization": "Bearer ${token}",
+}
+// req.body
+
+{"user_id": "1",
+ "date": "2021/02/01",
+ "description": "Supermarket 1",
+ "amount": "35.20",
+ "expense_category_id":"3"
+ }
+
+
+
+// res.body
+
+
+{
+    "id": 7,
+    "user_id": 1,
+    "date": "2021-02-01T05:00:00.000Z",
+    "description": "Supermarket 1",
+    "amount": 35.2,
+    "expense_category_id": 3
+}
+
+
+```
+
+#### PATCH `/api/expenses/:id`
+
+```js
+// req.header
+{
+    "Authorization": "Bearer ${token}",
+}
+
+// req.params
+{
+  id: id
+}
+
+// req.body
+
+{ "date": "2021/02/11",
+"description": "Supermarket 2",
+"amount": "35.20",
+"expense_category_id":"3"
+}
+
+```
+
+#### DELETE `/api/expenses/:id`
+
+```js
+// req.header
+{
+    "Authorization": "Bearer ${token}",
+}
+
+// req.params
+{
+  id:id
+}
+
 // res.body
 
 {
-  authToken: 'asKNNJhkjnnfsdnfkjneasKNNJhkjnnfsdnfkjneasKNNJhkjnnfsdnfkjneasKNNJhkjnnfsdnfkjneasKNNJhkjnnfsdnfkjne';
 }
+
 ```
 
-### 9. Screenshots
+#### GET `/api/expense-categories/`
 
+```js
+// req.header
+{
+    "Authorization": "Bearer ${token}",
+}
+
+// res.body
+[
+
+    {
+        "id": 1,
+        "title": "Alimony"
+    },
+    {
+        "id": 2,
+        "title": "Car Insurance"
+    },
+    {
+        "id": 3,
+        "title": "Car Payment"
+    },
+    {
+        "id": 4,
+        "title": "Car Repair / Licenses"
+    },
+   ...
+]
+```
+
+### 9. Screenshots (to do later)
+
+(Example) Landing Page
+:-------------------------:
+![Landing Page](/github-images/screenshots/landing-page-screenshot.png)
 Register Page
-![Register Page](/github-images/screenshots/Appfrench-signup.png)
-:-------------------------:
-Login Page
-![Login Page](/github-images/screenshots/Appfrench-login.png)
-:-------------------------:
-Dashboard Page
-![Dashboard Page](/github-images/screenshots/Appfrench-Dashboard.png)
-:-------------------------:
-Learning Page: Next Word
-![Learning Page: Next Word](/github-images/screenshots/Appfrench-Learning-page-next-word.png)
-:-------------------------:
-Learning Page: Incorrect Answer
-![Learning Page: Incorrect Answer](/github-images/screenshots/Appfrench-Learning-page-incorrect.png)
-:-------------------------:
-Learning Page: Correct Answer
-![Learning Page: Correct Answer](/github-images/screenshots/Appfrench-Learning-page-correct-a.png)
+![Register Page](/github-images/screenshots/register-page-screenshot.png)
 
-### 10. Development Roadmap
+### 10. Development Roadmap (to do later)
 
 This is v1.0 of the app, but future enhancements are expected to include:
 
-- Add more functionality
+- (Example) add more functionality
 
-### 11. How to run it
+### 11. How to run it (done)
 
 Use command line to navigate into the project folder and run the following in terminal
 
