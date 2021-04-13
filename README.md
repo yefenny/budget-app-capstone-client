@@ -112,9 +112,9 @@ New Expense Page
 Edit Expense Page
 ![Edit Expense Page](./github-images/wireframes/Budget-app-edit-expense.png)
 
-### 6. Front-end Structure - React Components Map (to do later)
+### 6. Front-end Structure - React Components 
 
-- (Example) **Index.js** (stateless)
+- **Index.js** (stateless)
   - **App.js** (stateful)
     - **LandingPage.js** (stateful) - gets the _"prop name"_ and the _"callback prop name"_ from the **App.js**
       - **Login.js** (stateful) -
@@ -641,21 +641,7 @@ API Documentation details:
 ]
 ```
 
-### 9. Screenshots (to do later)
-
-(Example) Landing Page
-:-------------------------:
-![Landing Page](/github-images/screenshots/landing-page-screenshot.png)
-Register Page
-![Register Page](/github-images/screenshots/register-page-screenshot.png)
-
-### 10. Development Roadmap (to do later)
-
-This is v1.0 of the app, but future enhancements are expected to include:
-
-- (Example) add more functionality
-
-### 11. How to run it (done)
+### 9. How to run it
 
 Use command line to navigate into the project folder and run the following in terminal
 
